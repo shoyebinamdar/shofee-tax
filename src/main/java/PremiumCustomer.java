@@ -1,5 +1,9 @@
+import java.util.Map;
+
 public class PremiumCustomer implements Customer {
     Integer pusrchaseAmount;
+
+    DiscountCalculator calculator = new DiscountCalculator();
 
     public PremiumCustomer(Integer pusrchaseAmount) {
         this.pusrchaseAmount = pusrchaseAmount;
@@ -7,6 +11,6 @@ public class PremiumCustomer implements Customer {
 
     @Override
     public Integer getDiscountedAmount() {
-        return null;
+        return calculator.getDiscountedAmount(pusrchaseAmount, Constants.PREMIUM_SLABS);
     }
 }
